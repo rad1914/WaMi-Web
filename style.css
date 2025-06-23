@@ -270,16 +270,34 @@ body, html {
     border-radius: 8px;
     margin-bottom: 4px;
     word-wrap: break-word;
+    position: relative;
 }
+/* New styles for media messages */
+.message-bubble img, .message-bubble video {
+    max-width: 100%;
+    border-radius: 6px;
+    margin-top: 5px;
+}
+.message-caption {
+    margin-top: 5px;
+}
+.message-bubble a {
+    color: #53bdeb;
+    text-decoration: underline;
+}
+
 .message-container {
     display: flex;
     flex-direction: column;
     margin-bottom: 12px;
+    max-width: 75%;
 }
 .message-container.outgoing {
+    align-self: flex-end;
     align-items: flex-end;
 }
 .message-container.incoming {
+    align-self: flex-start;
     align-items: flex-start;
 }
 .message-bubble.outgoing {
@@ -304,10 +322,53 @@ body, html {
     font-size: 1.1em;
 }
 
+/* New styles for reactions */
+.reactions-container {
+    position: absolute;
+    bottom: -15px;
+    right: 5px;
+    background: var(--background-secondary);
+    border-radius: 10px;
+    padding: 2px 5px;
+    font-size: 0.8em;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    display: flex;
+    gap: 3px;
+}
+.react-btn {
+    display: none;
+    position: absolute;
+    top: -15px;
+    right: 5px;
+    background: #4a5a65;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    font-size: 16px;
+}
+.message-bubble:hover .react-btn {
+    display: block;
+}
+
+
 #chat-footer {
     background-color: var(--panel-header-background);
     padding: 10px 20px;
     display: flex;
+    align-items: center;
+}
+/* New button style */
+#attach-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 8px;
+    margin-right: 5px;
 }
 #message-input {
     flex-grow: 1;
