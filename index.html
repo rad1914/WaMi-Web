@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WaMi - Web Client</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+</head>
+<body>
+    <div id="app-container">
+        <div id="login-view" class="view active">
+            <div class="login-box">
+                <h1>WaMi Web Client</h1>
+                <p id="login-status">Connecting to server...</p>
+                <div id="qr-container">
+                    <img id="qr-image" src="" alt="QR Code">
+                </div>
+                <div class="session-input">
+                    <p>Or connect using an existing Session ID:</p>
+                    <input type="text" id="session-id-input" placeholder="Enter Session ID (UUID)">
+                    <button id="connect-session-btn">Connect</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="chat-view" class="view">
+            <aside id="sidebar">
+                <header class="sidebar-header">
+                    <h3>Chats</h3>
+                    <button id="logout-btn" title="Logout">Logout</button>
+                </header>
+                <div id="chat-list">
+                    </div>
+            </aside>
+            <main id="main-content">
+                <div id="chat-welcome" class="chat-area-container">
+                    <div class="welcome-content">
+                        <h2>Welcome to WaMi</h2>
+                        <p>Select a chat to start messaging.</p>
+                    </div>
+                </div>
+                <div id="chat-area" class="chat-area-container" style="display: none;">
+                    <header id="chat-header">
+                        <img id="chat-avatar" src="" alt="Avatar">
+                        <div class="chat-info">
+                            <h3 id="chat-name"></h3>
+                        </div>
+                         <button id="sync-history-btn" title="Load Older Messages">Sync History</button>
+                    </header>
+                    <div id="message-list">
+                        </div>
+                    <footer id="chat-footer">
+                        <input type="text" id="message-input" placeholder="Type a message...">
+                        <button id="send-btn">Send</button>
+                    </footer>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="client.js"></script>
+</body>
+</html>
